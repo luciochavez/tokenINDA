@@ -1,0 +1,8 @@
+{
+  "canisters": {
+    "tokenINDA": {
+      "main": "src/contracts/Token.mo",
+      "type": "motoko"
+    }
+  }
+}
