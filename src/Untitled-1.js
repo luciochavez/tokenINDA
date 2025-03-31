@@ -1,15 +1,8 @@
-#//comando para extraer la mime-type del archivo de imagen del logo y convertir a base64 con la mime insertada:
-#//echo -n "data:$(file --mime-type -b logo.svg);base64," > logo.txt && base64 -w 0 logo.svg >> logo.txt`
-#// Nota importante, Si se establece un porcentage del fee para la quema, hay que establecer el parametro min_burn_amount en el deploy
-#// con un valor menor o igual al valor en tokens correspondiente a ese porcentage para un Fee
-#// Ejemplo si el fee es de 10_000 y el porcentage de ese fee asignado a la quema es de 12.5% (1250) el valor de min_burn_amount tiene que ser
-#// menor a 1250. De lo contrario falla la quema y el porcentaje correspondiente queda en posecion del usuario
-#// Ejemplo de envio de parametros de deploy
-dfx deploy tokeninda --argument '(
+(
   record {
     initial_distribution = vec {
       record {
-        name = "IndasocialCommunity";
+        categoryName = "IndasocialCommunity";
         allocatedAmount = 105_000_000_000_000 : nat;
         holders = vec {
           record {
@@ -20,7 +13,7 @@ dfx deploy tokeninda --argument '(
         blockingDays = 730 : nat;
       };
       record {
-        name = "Liquidity";
+        categoryName = "Liquidity";
         allocatedAmount = 120_000_000_000_000 : nat;
         holders = vec {
           record {
@@ -31,7 +24,7 @@ dfx deploy tokeninda --argument '(
         blockingDays = 0 : nat;
       };
       record {
-        name = "TeamAndDevelopment";
+        categoryName = "TeamAndDevelopment";
         allocatedAmount = 30_000_000_000_000 : nat;
         holders = vec {
           record {
@@ -42,7 +35,7 @@ dfx deploy tokeninda --argument '(
         blockingDays = 540 : nat;
       };
       record {
-        name = "InvestorsAndPartnerships";
+        categoryName = "InvestorsAndPartnerships";
         allocatedAmount = 45_000_000_000_000 : nat;
         holders = vec {
           record {
@@ -81,20 +74,20 @@ dfx deploy tokeninda --argument '(
       toBurn = 100 : nat;
       pooles = vec {
         record {
-          account = record {
+          to = record {
             owner = principal "kjb46-kqy5c-tz5ke-nn6ge-3laio-buypz-e6j6m-iwgc7-bzcsq-kbdma-4ae";
             subaccount = null;
           };
           name = "DAO Pool";
-          percent = 200 : nat;
+          percentage = 200 : nat;
         };
         record {
-          account = record {
+          to = record {
             owner = principal "yyg2e-xk2kf-kjq7x-76fd5-5uter-qdiim-6gdkz-mmlqb-3tyhv-g4tdv-jqe";
             subaccount = null;
           };
           name = "Marketing";
-          percent = 100 : nat;
+          percentage = 100 : nat;
         };
       };
     };
@@ -107,6 +100,4 @@ dfx deploy tokeninda --argument '(
       settle_to_approvals = null;
     };
   },
-)'
-#// Para iniciar la distribucion, desde el deployer del token 
-#//dfx canister call tokeninda distribution_info
+)

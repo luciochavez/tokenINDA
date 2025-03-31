@@ -1,10 +1,3 @@
-#//comando para extraer la mime-type del archivo de imagen del logo y convertir a base64 con la mime insertada:
-#//echo -n "data:$(file --mime-type -b logo.svg);base64," > logo.txt && base64 -w 0 logo.svg >> logo.txt`
-#// Nota importante, Si se establece un porcentage del fee para la quema, hay que establecer el parametro min_burn_amount en el deploy
-#// con un valor menor o igual al valor en tokens correspondiente a ese porcentage para un Fee
-#// Ejemplo si el fee es de 10_000 y el porcentage de ese fee asignado a la quema es de 12.5% (1250) el valor de min_burn_amount tiene que ser
-#// menor a 1250. De lo contrario falla la quema y el porcentaje correspondiente queda en posecion del usuario
-#// Ejemplo de envio de parametros de deploy
 dfx deploy tokeninda --argument '(
   record {
     initial_distribution = vec {
@@ -108,5 +101,3 @@ dfx deploy tokeninda --argument '(
     };
   },
 )'
-#// Para iniciar la distribucion, desde el deployer del token 
-#//dfx canister call tokeninda distribution_info

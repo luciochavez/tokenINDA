@@ -22,15 +22,15 @@ module {
 
   public type FeeAllocationPercentages = {
     name : Text;
-    to : Account;
-    percentage : Nat; // % multiplicado por 100 (ej. 225 = 2.25%)
+    account : Account;
+    percent : Nat; // % multiplicado por 100 (ej. 225 = 2.25%)
   };
 
-  public func checkFeeAllocationPercentages(pools : [FeeAllocationPercentages]) : Bool {
-    var total = 0;
-    for (p in pools.vals()) {
-      total += p.percentage;
+  public func checkFeeAllocationPercentages(allocationsFee: [FeeAllocationPercentages]): Bool {
+    var accumulator = 0;
+    for(a in allocationsFee.vals()) {
+        accumulator += (a.percent);
     };
-    total <= 10_000; // No excede 100%
+    return accumulator <= 100 * 100
   };
 };
