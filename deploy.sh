@@ -5,7 +5,7 @@
 #// Ejemplo si el fee es de 10_000 y el porcentage de ese fee asignado a la quema es de 12.5% (1250) el valor de min_burn_amount tiene que ser
 #// menor a 1250. De lo contrario falla la quema y el porcentaje correspondiente queda en posecion del usuario
 #// Ejemplo de envio de parametros de deploy
-dfx deploy tokeninda --argument '(
+dfx deploy ICRC_template_backend --argument '(
   record {
     initial_distribution = vec {
       record {
@@ -108,5 +108,5 @@ dfx deploy tokeninda --argument '(
     };
   },
 )'
-#// Para iniciar la distribucion, desde el deployer del token 
+#// Para iniciar la distribucion, desde el deployer del token
 #//dfx canister call tokeninda distribution_info
