@@ -7,16 +7,30 @@ module {
     subaccount : ?Blob;
   };
 
-  public type HolderCategory = {
-    categoryName : Text; // Nombre opcional para identificación (por ejemplo: "Comunidad", "Equipo")
-    holders : [Account]; // Lista de cuentas que recibirán esta asignación
-    allocatedAmount : Nat; // Monto que recibirá cada holder (puede dividirse manualmente si quieres que sea distinto)
-    blockingDays : Nat; // Días que deben pasar antes de que los tokens se desbloqueen
+  public type Holder = {
+    owner: Principal;
+    subaccount: ?Blob;
   };
 
+  public type HolderCategory = {
+    categoryName : Text;
+    holders : [Account];
+    allocatedAmount : Nat;
+    blockingDays : Nat;
+  };
+
+
   public type FeeAllocationPercentages = {
-    name : Text; // Por ejemplo: "pool de desarrollo", "DAO", etc.
-    to : Account; // Cuenta receptora del porcentaje
-    percentage : Nat; // Porcentaje multiplicado por 100 (ej. 225 para 2.25%)
+    name : Text;
+    to : Account;
+    percentage : Nat; // % multiplicado por 100 (ej. 225 = 2.25%)
+  };
+
+  public func checkFeeAllocationPercentages(pools : [FeeAllocationPercentages]) : Bool {
+    var total = 0;
+    for (p in pools.vals()) {
+      total += p.percentage;
+    };
+    total <= 10_000; // No excede 100%
   };
 };

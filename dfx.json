@@ -1,8 +1,14 @@
 {
   "canisters": {
     "tokeninda": {
-      "main": "src/main.mo",
+      "main": "src/token.mo",
       "type": "motoko"
+    }
+  },
+  "dependencies": {
+    "icrc1-mo": {
+      "git": "https://github.com/dfinity/icrc1-mo",
+      "tag": "v0.1.0"
     }
   },
   "defaults": {

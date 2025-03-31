@@ -15,56 +15,26 @@ import Int "mo:base/Int";
 import Array "mo:base/Array";
 import Nat "mo:base/Nat";
 import Nat32 "mo:base/Nat32";
+
+
 import ICRC1 "mo:icrc1-mo/ICRC1";
 import ICRC2 "mo:icrc2-mo/ICRC2";
 import Types "types";
 import { print } "mo:base/Debug";
 import Iter "mo:base/Iter";
+
 import STM "mo:StableTrieMap";
 
+
+
+
+
+
 shared ({ caller = _owner }) actor class Token({   
-    
     icrc1_init_args : ICRC1.InitArgs;
     icrc2_init_args : ICRC2.InitArgs;
     initial_distribution : [Types.HolderCategory];
     fee_distribution_percentages: {toBurn : Nat; pooles: [Types.FeeAllocationPercentages]}; //Multiplicar por 100. Ej: para expresar un 2.25 por ciento poner 225
-
-    /*
-    icrc1_init_args = {
-    name = "INDAToken";
-    symbol = "INDA";
-    decimals = 8;
-    fee = ? #Fixed(10_000); // 0.01 INDA
-    
-    metadata = vec {
-        record { 
-            "icrc1:logo";
-            variant {Text = "data:image/png;base64,"
-            }
-        };
-        record { "icrc1:decimals"; variant { Nat = 8 : nat } };
-        record { "icrc1:name"; variant { Text = "INDA" } };
-        record { "icrc1:symbol"; variant { Text = "INDA" } };
-        record { "icrc1:fee"; variant { Nat = 10_000 : nat } };
-        record { "icrc1:max_memo_length"; variant { Nat = 80 : nat } };
-        };
-    
-    minting_account = null;
-    //initial_balances = [];
-    archive_options = null;
-  };
-
-  icrc2_init_args = {
-    maximum_approvals_per_account = ?20;
-    maximum_approvals = ?100;
-    fee = null;
-  };
-    initial_distribution : [Types.HolderCategory];
-    fee_distribution_percentages : {
-        toBurn : Nat; // 1% de 0.01 INDA = 0.0001
-        pooles : [Types.FeeAllocationPercentages];
-    };*/
-    
 }) = this {
 
     
