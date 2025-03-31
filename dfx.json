@@ -1,8 +1,16 @@
 {
   "canisters": {
-    "tokenINDA": {
-      "main": "src/contracts/Token.mo",
+    "tokeninda": {
+      "main": "src/main.mo",
       "type": "motoko"
     }
-  }
+  },
+  "defaults": {
+    "build": {
+      "packtool": "mops sources"
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1,
+  "dfx": "0.24.3"
 }

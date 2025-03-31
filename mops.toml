@@ -1,2 +1,3 @@
 [dependencies]
+icrc1-mo = "0.0.13"
 icrc2-mo = "0.0.13"
