@@ -5,12 +5,6 @@
       "type": "motoko"
     }
   },
-  "dependencies": {
-    "icrc1-mo": {
-      "git": "https://github.com/dfinity/icrc1-mo",
-      "tag": "v0.1.0"
-    }
-  },
   "defaults": {
     "build": {
       "packtool": "mops sources"

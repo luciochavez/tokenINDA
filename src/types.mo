@@ -13,7 +13,7 @@ module {
   };
 
   public type HolderCategory = {
-    categoryName : Text;
+    name : Text;
     holders : [Account];
     allocatedAmount : Nat;
     blockingDays : Nat;

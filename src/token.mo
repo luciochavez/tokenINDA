@@ -367,7 +367,14 @@ shared ({ caller = _owner }) actor class Token({
                 };
             };
         };
-        let amountReleasedToDate : Nat = distributedAmount - amountCurrentlyBlocked;
+        //let amountReleasedToDate : Nat = distributedAmount - amountCurrentlyBlocked;
+
+        let amountReleasedToDate : Nat = 
+        if (distributedAmount >= amountCurrentlyBlocked) {
+            distributedAmount - amountCurrentlyBlocked
+        } else {
+            0
+        };
 
         let entries = Iter.toArray(releasesMap.entries());
 
