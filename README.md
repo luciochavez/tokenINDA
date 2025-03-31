@@ -14,9 +14,10 @@ Este repositorio contiene la implementación del **token INDA**, basado en el es
 
 ```bash
 📦 tokenINDA
- ┣ 📂 src
- ┃ ┣ 📂 contracts       # 📜 Código del token en Motoko
- ┃ ┃ ┗ 📜 Token.mo      # Implementación del token ICRC-2
+ ┣ 📂 src               # 📜 Código del token en Motoko
+ ┃ ┣ 📜 token.mo        # Token
+ ┃ ┣ 📜 types.mo        # types
+ ┃ ┣ 📜 main.mo         # main
  ┣ 📂 scripts           # 🔧 Scripts para despliegue e interacción
  ┃ ┣ 📜 deploy.sh       # Desplegar el token en ICP
  ┃ ┣ 📜 transfer.sh     # Transferir tokens
