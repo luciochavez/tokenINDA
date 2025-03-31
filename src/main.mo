@@ -57,7 +57,8 @@ actor {
     ];
 
     fee_distribution_percentages = {
-      toBurn = 30_000; // 0.03 INDA (por ejemplo), el 1% real si fee = 0.01
+      // reciclar???
+      toBurn = 30_000; // 0.03 INDA, el 1% real si fee = 0.01
       pooles = [
         {
           name = "DAO Pool";
